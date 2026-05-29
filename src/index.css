@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  transition: all 0.5s ease;
+}
+
+.about-avatar:hover .avatar-photo {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Add a glowing border around photo */
+.about-avatar {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-avatar::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: var(--gradient-1);
+  border-radius: 32px;
+  z-index: -1;
+  animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}.about-image-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.about-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(0deg);
+  position: relative;
+  padding: 5px;
+  background: var(--gradient-1);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--dark);
+  transition: all 0.5s ease;
+}
+
+.about-avatar:hover .avatar-photo {
+  transform: scale(1.05);
+  border-color: transparent;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3),
+                0 0 40px rgba(0, 212, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5),
+                0 0 60px rgba(124, 58, 237, 0.2);
+  }
+}
