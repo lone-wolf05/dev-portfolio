@@ -7,7 +7,6 @@ const Hero = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
 
   useEffect(() => {
     const roles = [
@@ -39,7 +38,7 @@ const Hero = () => {
     const speed = isDeleting ? 50 : 150;
     const timer = setTimeout(handleType, speed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed]);
+  }, [text, isDeleting, loopNum]);
 
   return (
     <section id="home" className="hero-section">
@@ -51,10 +50,10 @@ const Hero = () => {
               Welcome to my Portfolio
             </div>
             <h1 className="hero-title" data-aos="fade-up" data-aos-delay="200">
-              Hi, I'm <span className="highlight-text">Dev Saini</span>
+              Hi, I am <span className="highlight-text">Dev Saini</span>
             </h1>
             <h2 className="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
-              I'm a{' '}
+              I am a{' '}
               <span className="typed-text">
                 {text}
                 <span className="cursor">|</span>
