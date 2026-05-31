@@ -2,7 +2,7 @@
   "name": "dev-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lone-wolf05.github.io/dev-portfolio",
+  "homepage": ".",
   "dependencies": {
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",

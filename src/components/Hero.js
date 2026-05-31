@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaGithub, FaLinkedin, FaEnvelope, FaDownload, FaReact, FaNodeJs } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
 import ParticleBackground from './ParticleBackground';
 
 const Hero = () => {
@@ -9,27 +9,24 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const roles = [
-    'MERN Stack Developer',
-    'React.js Developer',
-    'Node.js Developer',
-    'Front-End Developer',
-    'Python Developer',
-    'Ethical Hacker'
-  ];
-
   useEffect(() => {
-    const handleType = () => {
-      const current = loopNum % roles.length;
-      const fullText = roles[current];
+    const roles = [
+      'Front-End Developer',
+      'Python Developer',
+      'Java Developer',
+      'Web Designer',
+      'Ethical Hacker'
+    ];
 
+    const current = loopNum % roles.length;
+    const fullText = roles[current];
+
+    const handleType = () => {
       setText(
         isDeleting
           ? fullText.substring(0, text.length - 1)
           : fullText.substring(0, text.length + 1)
       );
-
-      setTypingSpeed(isDeleting ? 50 : 150);
 
       if (!isDeleting && text === fullText) {
         setTimeout(() => setIsDeleting(true), 1500);
@@ -39,9 +36,10 @@ const Hero = () => {
       }
     };
 
-    const timer = setTimeout(handleType, typingSpeed);
+    const speed = isDeleting ? 50 : 150;
+    const timer = setTimeout(handleType, speed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed, roles]);
+  }, [text, isDeleting, loopNum, typingSpeed]);
 
   return (
     <section id="home" className="hero-section">
@@ -50,7 +48,7 @@ const Hero = () => {
         <Row className="align-items-center min-vh-100">
           <Col lg={8} className="mx-auto text-center">
             <div className="hero-badge" data-aos="fade-down">
-              👋 Welcome to my Portfolio
+              Welcome to my Portfolio
             </div>
             <h1 className="hero-title" data-aos="fade-up" data-aos-delay="200">
               Hi, I'm <span className="highlight-text">Dev Saini</span>
@@ -63,20 +61,9 @@ const Hero = () => {
               </span>
             </h2>
             <p className="hero-description" data-aos="fade-up" data-aos-delay="600">
-              Passionate MERN Stack Developer building beautiful web experiences
-              with React.js & Node.js. Solving complex problems with clean, efficient code.
+              Passionate about building beautiful web experiences and solving
+              complex problems with clean, efficient code.
             </p>
-
-            {/* Tech Icons Row */}
-            <div className="hero-tech-icons" data-aos="fade-up" data-aos-delay="700">
-              <div className="tech-icon-circle" title="React.js">
-                <FaReact className="spinning" style={{ color: '#61DAFB' }} />
-              </div>
-              <div className="tech-icon-circle" title="Node.js">
-                <FaNodeJs style={{ color: '#339933' }} />
-              </div>
-            </div>
-
             <div className="hero-buttons" data-aos="fade-up" data-aos-delay="800">
               <a href="#contact" className="btn btn-glow me-3">
                 <FaEnvelope className="me-2" /> Contact Me
